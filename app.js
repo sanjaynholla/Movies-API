@@ -8,12 +8,10 @@ app.use(express.json());
 const movies = require('./routes/movies');
 const topmovies = require('./routes/topmovies');
 const notfound = require('./middleware/NotFoundError')
-const errorhandler = require('./middleware/CustomErrorHandler')
 
 app.use('/api/v1/movies', movies);
 app.use('/api/v1/topmovies', topmovies);
 app.use(notfound);
-app.use(errorhandler);
 
 const PORT = process.env.PORT || 3000;
 const URL = process.env.MONGO_URI;
